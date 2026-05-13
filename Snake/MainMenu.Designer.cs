@@ -1,6 +1,6 @@
 ﻿namespace Snake
 {
-    partial class MainMenu
+    partial class Snake
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Snake));
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
-            // MainMenu
+            // timer1
+            // 
+            timer1.Tick += UpdateGame;
+            // 
+            // Snake
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 609);
-            Name = "MainMenu";
-            Text = "MainMenu";
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(684, 411);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "Snake";
+            Text = "Classic Snake";
+            Load += Snake_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timer1;
     }
 }
