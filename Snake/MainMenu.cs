@@ -19,6 +19,17 @@ namespace Snake
         int snakeY = 205;
 
         int speed = 10;
+
+        Random radom = new Random();
+
+        List<Point> snakParts = new
+        List<Point>();
+        int snakewielk = 25;
+
+        int japuszkoX = 300 ;
+        int japuszkoY = 300 ;
+
+
         public Snake()
         {
             InitializeComponent();
@@ -32,6 +43,8 @@ namespace Snake
             this.Paint += rysujSnake;
             this.KeyDown += Snake_KeyDown;
             this.KeyUp += Snake_KeyUp;
+
+            snakParts.Add(new Point(snakeX, snakeY));
         }
 
 
@@ -49,15 +62,42 @@ namespace Snake
             if (moveRight) snakeX += speed;
 
             if (snakeX < 0)
-                snakeX = this.ClientSize.Width;
-            if (snakeX > this.ClientSize.Width)
+                snakeX = this.ClientSize.Width +50;
+            if (snakeX > this.ClientSize.Width +50)
                 snakeX = 0;
 
             if (snakeY < 0)
-                snakeY = this.ClientSize.Height;
-            if (snakeY > this.ClientSize.Height)
+                snakeY = this.ClientSize.Height + 50;
+            if (snakeY > this.ClientSize.Height + 50)
                 snakeY = 0;
 
+            snakParts.Insert(0, new Point(snakeX, snakeY));
+
+            Rectangle wazRect = new
+            Rectangle(snakeX, snakeY, snakewielk, snakewielk);
+            Rectangle jabkoRect = new
+            Rectangle(japuszkoX, japuszkoY, 25, 25);
+
+            if (wazRect.IntersectsWith(jabkoRect))
+            {
+                GeneracjaJablek();
+            }
+            else
+            {
+                snakParts.RemoveAt(snakParts.Count - 1);
+            }
+
+            for (int i = 1; i < snakParts.Count; i++)
+            {
+                if (snakParts[0] == snakParts[i])
+                {
+                    timer1.Stop();
+
+                    MessageBox.Show("wąż kaput");
+
+                    return;
+                }
+            }
 
             Invalidate();
         }
@@ -65,12 +105,26 @@ namespace Snake
         {
             Graphics g = e.Graphics;
 
-            g.FillRectangle(Brushes.Lime, snakeX, snakeY, 25, 25);
+            foreach (Point part in snakParts)
+            {
+                g.FillRectangle(Brushes.Lime, part.X, part.Y, snakewielk, snakewielk);
+
+            }
+
+            g.FillEllipse(Brushes.Red, japuszkoX, japuszkoY, 25, 25);
+        }
+
+        private void GeneracjaJablek()
+        {
+            int margin = 100;
+            japuszkoX = radom.Next(margin, this.ClientSize.Width - snakewielk -margin );
+            japuszkoY = radom.Next(margin, this.ClientSize.Height - snakewielk -margin);
+            
         }
 
         private void Snake_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up && !moveDown)
             {
                 moveUp = true;
                 moveDown = false;
@@ -79,7 +133,7 @@ namespace Snake
 
             }
 
-            if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.Down && !moveUp)
             {
                 moveDown = true;
                 moveLeft = false;
@@ -87,7 +141,7 @@ namespace Snake
                 moveUp = false;
             }
 
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.Left && !moveRight)
             {
                 moveLeft = true;
                 moveRight = false;
@@ -95,7 +149,7 @@ namespace Snake
                 moveDown = false;
             }
 
-            if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Right && !moveLeft)
             {
                 moveRight = true;
                 moveUp = false;
@@ -107,12 +161,10 @@ namespace Snake
 
         private void Snake_KeyUp(object sender, KeyEventArgs e)
         {
-           
         }
 
         private void Snake_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
         }
     }
 }

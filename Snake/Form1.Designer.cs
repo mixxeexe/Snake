@@ -38,10 +38,10 @@
             button1.BackColor = Color.Transparent;
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(495, 198);
+            button1.Location = new Point(262, 211);
             button1.MaximumSize = new Size(400, 400);
             button1.Name = "button1";
-            button1.Size = new Size(272, 99);
+            button1.Size = new Size(272, 61);
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = false;
@@ -52,9 +52,9 @@
             button2.BackColor = Color.Transparent;
             button2.BackgroundImageLayout = ImageLayout.Stretch;
             button2.ForeColor = SystemColors.ControlText;
-            button2.Location = new Point(495, 315);
+            button2.Location = new Point(262, 287);
             button2.Name = "button2";
-            button2.Size = new Size(272, 89);
+            button2.Size = new Size(272, 59);
             button2.TabIndex = 1;
             button2.Text = "button2";
             button2.UseVisualStyleBackColor = false;
@@ -65,9 +65,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.ChatGPT_Image_14_maj_2026__11_51_22;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(803, 489);
+            ClientSize = new Size(772, 536);
             Controls.Add(button2);
             Controls.Add(button1);
             Icon = (Icon)resources.GetObject("$this.Icon");

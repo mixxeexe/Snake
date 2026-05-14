@@ -79,5 +79,45 @@ namespace Snake.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_14_maj_2026__11_47_07 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 14 maj 2026, 11_47_07", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_14_maj_2026__11_51_22 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 14 maj 2026, 11_51_22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_14_maj_2026__11_55_03 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 14 maj 2026, 11_55_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_14_maj_2026__11_56_27 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 14 maj 2026, 11_56_27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
