@@ -41,8 +41,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Snake.Properties.Resources._82358c89_40a7_4cd8_a89e_0136b97f9fe6;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(684, 411);
+            ClientSize = new Size(736, 525);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Snake";
             Text = "Classic Snake";
