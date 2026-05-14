@@ -47,6 +47,9 @@
             Name = "Snake";
             Text = "Classic Snake";
             Load += Snake_Load;
+            KeyDown += Snake_KeyDown;
+            KeyPress += Snake_KeyPress;
+            KeyUp += Snake_KeyUp;
             ResumeLayout(false);
         }
 

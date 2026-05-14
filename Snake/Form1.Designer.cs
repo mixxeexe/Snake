@@ -38,9 +38,10 @@
             button1.BackColor = Color.Transparent;
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(495, 208);
+            button1.Location = new Point(495, 198);
+            button1.MaximumSize = new Size(400, 400);
             button1.Name = "button1";
-            button1.Size = new Size(272, 89);
+            button1.Size = new Size(272, 99);
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = false;

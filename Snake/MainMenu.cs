@@ -14,7 +14,6 @@ namespace Snake
     {
         bool moveUp, moveDown, moveLeft, moveRight;
 
-        
 
         int snakeX = 330;
         int snakeY = 205;
@@ -31,32 +30,19 @@ namespace Snake
             timer1.Start();
 
             this.Paint += rysujSnake;
-            this.KeyDown += Form1_KeyDown;
-            this.KeyUp += Form1_KeyUp;
-        }
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up) moveUp = false;
-            if (e.KeyCode == Keys.Down) moveDown = false;
-            if (e.KeyCode == Keys.Left) moveLeft = false;
-            if (e.KeyCode == Keys.Right) moveRight = false;
+            this.KeyDown += Snake_KeyDown;
+            this.KeyUp += Snake_KeyUp;
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Up) moveUp = true;
-            if (e.KeyCode == Keys.Down) moveDown = true;
-            if (e.KeyCode == Keys.Left) moveLeft = true;
-            if (e.KeyCode == Keys.Right) moveRight = true;
-        }
 
         private void Snake_Load(object sender, EventArgs e)
         {
-
+            moveRight = true;
         }
 
         private void UpdateGame(object sender, EventArgs e)
         {
+
             if (moveUp) snakeY -= speed;
             if (moveDown) snakeY += speed;
             if (moveLeft) snakeX -= speed;
@@ -79,7 +65,54 @@ namespace Snake
         {
             Graphics g = e.Graphics;
 
-            g.FillRectangle(Brushes.Lime, snakeX,snakeY , 25, 25);
+            g.FillRectangle(Brushes.Lime, snakeX, snakeY, 25, 25);
+        }
+
+        private void Snake_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                moveUp = true;
+                moveDown = false;
+                moveLeft = false;
+                moveRight = false;
+
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                moveDown = true;
+                moveLeft = false;
+                moveRight = false;
+                moveUp = false;
+            }
+
+            if (e.KeyCode == Keys.Left)
+            {
+                moveLeft = true;
+                moveRight = false;
+                moveUp = false;
+                moveDown = false;
+            }
+
+            if (e.KeyCode == Keys.Right)
+            {
+                moveRight = true;
+                moveUp = false;
+                moveDown = false;
+                moveLeft = false;
+            }
+
+        }
+
+        private void Snake_KeyUp(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void Snake_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }
