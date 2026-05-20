@@ -119,5 +119,25 @@ namespace Snake.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_20_maj_2026__08_33_56 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 20 maj 2026, 08_33_56", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_20_maj_2026__08_53_31 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 20 maj 2026, 08_53_31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

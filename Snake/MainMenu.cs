@@ -14,7 +14,8 @@ namespace Snake
     {
         bool moveUp, moveDown, moveLeft, moveRight;
 
-
+        int liczbapkt;
+        int lvl =1;
         int snakeX = 330;
         int snakeY = 205;
 
@@ -26,8 +27,8 @@ namespace Snake
         List<Point>();
         int snakewielk = 25;
 
-        int japuszkoX = 300 ;
-        int japuszkoY = 300 ;
+        int japuszkoX = 300;
+        int japuszkoY = 300;
 
 
         public Snake()
@@ -36,7 +37,7 @@ namespace Snake
 
             this.DoubleBuffered = true;
 
-            timer1.Interval = 100;
+            timer1.Interval = 150;
             timer1.Tick += UpdateGame;
             timer1.Start();
 
@@ -55,6 +56,8 @@ namespace Snake
 
         private void UpdateGame(object sender, EventArgs e)
         {
+            LvlUP();
+            pktlbl.Text = "Punkty: " + liczbapkt.ToString();
 
             if (moveUp) snakeY -= speed;
             if (moveDown) snakeY += speed;
@@ -62,8 +65,8 @@ namespace Snake
             if (moveRight) snakeX += speed;
 
             if (snakeX < 28)
-                snakeX = this.ClientSize.Width -70;
-            if (snakeX > this.ClientSize.Width -70)
+                snakeX = this.ClientSize.Width - 70;
+            if (snakeX > this.ClientSize.Width - 70)
                 snakeX = 40;
 
             if (snakeY < 100)
@@ -80,7 +83,9 @@ namespace Snake
 
             if (wazRect.IntersectsWith(jabkoRect))
             {
+                liczbapkt++;
                 GeneracjaJablek();
+                pktlbl.Text = "Punkty: " + liczbapkt.ToString();
             }
             else
             {
@@ -117,9 +122,9 @@ namespace Snake
         private void GeneracjaJablek()
         {
             int margin = 100;
-            japuszkoX = radom.Next(margin, this.ClientSize.Width - snakewielk -margin );
-            japuszkoY = radom.Next(margin, this.ClientSize.Height - snakewielk -margin);
-            
+            japuszkoX = radom.Next(margin, this.ClientSize.Width - snakewielk - margin);
+            japuszkoY = radom.Next(margin, this.ClientSize.Height - snakewielk - margin);
+
         }
 
         private void Snake_KeyDown(object sender, KeyEventArgs e)
@@ -155,6 +160,7 @@ namespace Snake
                 moveUp = false;
                 moveDown = false;
                 moveLeft = false;
+                
             }
 
         }
@@ -166,5 +172,55 @@ namespace Snake
         private void Snake_KeyPress(object sender, KeyPressEventArgs e)
         {
         }
+
+        private void pktlbl_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        public int LvlUP()
+        {
+           
+
+            if (liczbapkt ==10)
+            {
+                timer1.Interval = 125;
+                lvl=2;
+                lvllbl.Text = "LVL : " + lvl.ToString();
+            }
+            else if (liczbapkt ==15)
+            {
+                timer1.Interval = 100;
+                lvl =3;
+                lvllbl.Text = "LVL : " + lvl.ToString();
+            }
+            else if (liczbapkt == 20)
+            {
+                timer1.Interval = 85;
+                lvl = 4;
+                lvllbl.Text = "LVL : " + lvl.ToString();
+            }
+            else if (liczbapkt == 30)
+            {
+                timer1.Interval = 70;
+                lvl = 5;
+                lvllbl.Text = "LVL : " + lvl.ToString();
+            }
+            else if (liczbapkt == 40)
+            {
+                timer1.Interval = 55;
+                lvl = 6;
+                lvllbl.Text = "LVL : " + lvl.ToString();
+            }
+            else if (liczbapkt == 50)
+            {
+                timer1.Interval = 40;
+                lvllbl.Text = "LVL: EXTREME";
+
+            }
+            return 0;
+        }
+        
+       
     }
 }
