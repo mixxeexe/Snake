@@ -43,8 +43,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.ChatGPT_Image_14_maj_2026__11_56_27;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(633, 525);
+            ClientSize = new Size(634, 526);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(650, 565);
+            MinimumSize = new Size(650, 565);
+            Name = "Snake";
             Text = "Classic Snake";
             Load += Snake_Load;
             KeyDown += Snake_KeyDown;

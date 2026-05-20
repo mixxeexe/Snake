@@ -61,15 +61,15 @@ namespace Snake
             if (moveLeft) snakeX -= speed;
             if (moveRight) snakeX += speed;
 
-            if (snakeX < 0)
-                snakeX = this.ClientSize.Width +50;
-            if (snakeX > this.ClientSize.Width +50)
-                snakeX = 0;
+            if (snakeX < 28)
+                snakeX = this.ClientSize.Width -70;
+            if (snakeX > this.ClientSize.Width -70)
+                snakeX = 40;
 
-            if (snakeY < 0)
-                snakeY = this.ClientSize.Height + 50;
-            if (snakeY > this.ClientSize.Height + 50)
-                snakeY = 0;
+            if (snakeY < 100)
+                snakeY = this.ClientSize.Height - 50;
+            if (snakeY > this.ClientSize.Height - 50)
+                snakeY = 100;
 
             snakParts.Insert(0, new Point(snakeX, snakeY));
 
