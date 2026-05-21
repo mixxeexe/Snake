@@ -35,6 +35,7 @@ namespace Snake
         {
             InitializeComponent();
 
+
             this.DoubleBuffered = true;
 
             timer1.Interval = 150;
@@ -97,8 +98,9 @@ namespace Snake
                 if (snakParts[0] == snakParts[i])
                 {
                     timer1.Stop();
+                    MessageBox.Show("Przegrałeś!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    MessageBox.Show("wąż kaput");
+
 
                     return;
                 }
@@ -215,7 +217,8 @@ namespace Snake
             else if (liczbapkt == 50)
             {
                 timer1.Interval = 40;
-                lvllbl.Text = "LVL: EXTREME";
+                lvllbl.Text = "EXTREME";
+                lvllbl.ForeColor = Color.Red;
 
             }
             return 0;
